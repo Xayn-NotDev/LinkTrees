@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Raiden Nomaden - Developer & Gamer | Linktree</title>
+  <meta name="description" content="Connect with Raiden Nomaden - A passionate developer and gamer. Find all my social media links, projects, and favorite artists in one place.">
+  <meta name="keywords" content="Raiden Nomaden, Developer, Gamer, Coding, Roblox, Steam">
+  <meta name="author" content="Raiden Nomaden">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:title" content="Raiden Nomaden - Developer & Gamer">
+  <meta property="og:description" content="Connect with Raiden Nomaden - Find all my social media links and favorite artists here!">
+  <meta property="og:image" content="https://files.catbox.moe/qzcoyr.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://yourdomain.com/">
+  <meta property="twitter:title" content="Raiden Nomaden - Developer & Gamer">
+  <meta property="twitter:description" content="Connect with Raiden Nomaden - Find all my social media links and favorite artists here!">
+  <meta property="twitter:image" content="https://files.catbox.moe/qzcoyr.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://files.catbox.moe/qzcoyr.jpg">
+  <link rel="apple-touch-icon" href="https://files.catbox.moe/qzcoyr.jpg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- External Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hanzcode1/LinktreeBuilder@main/style.css">
+  
+  <style>
+    /* Custom Enhancements */
+    :root {
+      --primary-color: #6C63FF;
+      --secondary-color: #FF6B9D;
+      --accent-color: #FEC163;
+      --dark-bg: #0a0e27;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --text-light: #ffffff;
+      --text-muted: #b8b8d4;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark-bg);
+      color: var(--text-light);
+      overflow-x: hidden;
+      position: relative;
+    }
+    
+    /* Animated Background Pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(90deg, rgba(108, 99, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(108, 99, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: moveGrid 20s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    @keyframes moveGrid {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+    
+    /* Gradient Orbs */
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .orb-1 {
+      width: 400px;
+      height: 400px;
+      background: var(--primary-color);
+      top: -200px;
+      left: -200px;
+      animation: float 20s ease-in-out infinite;
+    }
+    
+    .orb-2 {
+      width: 300px;
+      height: 300px;
+      background: var(--secondary-color);
+      bottom: -150px;
+      right: -150px;
+      animation: float 15s ease-in-out infinite reverse;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(50px, 50px) scale(1.1); }
+    }
+    
+    /* Enhanced Loading Animation */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    
+    .loading-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .loading-content {
+      text-align: center;
+    }
+    
+    .loading-pixels {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    
+    .loading-pixel {
+      width: 20px;
+      height: 20px;
+      background: var(--primary-color);
+      border-radius: 4px;
+      animation: pixelBounce 1.4s ease-in-out infinite;
+    }
+    
+    .loading-pixel:nth-child(2) {
+      animation-delay: 0.2s;
+      background: var(--secondary-color);
+    }
+    
+    .loading-pixel:nth-child(3) {
+      animation-delay: 0.4s;
+      background: var(--accent-color);
+    }
+    
+    @keyframes pixelBounce {
+      0%, 80%, 100% { transform: scale(0); }
+      40% { transform: scale(1); }
+    }
+    
+    .loading-text {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 14px;
+      color: var(--primary-color);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    /* View Counter */
+    .view-counter {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 1000;
+      font-size: 14px;
+      animation: slideInRight 0.6s ease;
+    }
+    
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .view-counter i {
+      color: var(--primary-color);
+    }
+    
+    /* Profile Badge */
+    .profile-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 10px;
+      animation: badgePulse 2s ease-in-out infinite;
+      box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
+    }
+    
+    @keyframes badgePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    /* Enhanced Hover Effects for Links */
+    .link-item {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .link-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .link-item:hover::before {
+      left: 100%;
+    }
+    
+    .link-item:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3);
+    }
+    
+    /* Favorite Artists Section */
+    .favorite-artists {
+      margin-top: 40px;
+      padding: 30px 20px;
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      animation: fadeInUp 0.8s ease;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .artists-title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .artists-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .artist-card {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 15px;
+      padding: 15px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .artist-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(108, 99, 255, 0.2), rgba(255, 107, 157, 0.2));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .artist-card:hover::before {
+      opacity: 1;
+    }
+    
+    .artist-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(108, 99, 255, 0.4);
+      border-color: var(--primary-color);
+    }
+    
+    .artist-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 15px;
+      border: 3px solid var(--primary-color);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .artist-card:hover .artist-image {
+      border-color: var(--secondary-color);
+      transform: scale(1.1) rotate(5deg);
+    }
+    
+    .artist-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 5px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .artist-genre {
+      font-size: 12px;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .view-counter {
+        top: 10px;
+        right: 10px;
+        padding: 8px 15px;
+        font-size: 12px;
+      }
+      
+      .artists-title {
+        font-size: 20px;
+      }
+      
+      .artists-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+      }
+      
+      .artist-image {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .artist-name {
+        font-size: 14px;
+      }
+    }
+    
+    /* QR Code Button */
+    .qr-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 5px 25px rgba(108, 99, 255, 0.5);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      animation: slideInUp 0.6s ease;
+    }
+    
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .qr-button:hover {
+      transform: scale(1.1) rotate(90deg);
+      box-shadow: 0 8px 35px rgba(108, 99, 255, 0.7);
+    }
+  </style>
+  
+  <script src="https://cdn.jsdelivr.net/gh/hanzcode1/LinktreeBuilder@main/script.js"></script>
+</head>
+<body>
+  <!-- Background Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  
+  <!-- Enhanced Loading Overlay -->
+  <div class="loading-overlay" id="loading">
+    <div class="loading-content">
+      <div class="loading-pixels">
+        <div class="loading-pixel"></div>
+        <div class="loading-pixel"></div>
+        <div class="loading-pixel"></div>
+      </div>
+      <div class="loading-text">LOADING...</div>
+    </div>
+  </div>
+
+  <!-- View Counter -->
+  <div class="view-counter">
+    <i class="fas fa-eye"></i>
+    <span id="viewCount">Loading...</span>
+  </div>
+  
+  <!-- QR Code Button -->
+  <div class="qr-button" onclick="generateQR()" title="Generate QR Code">
+    <i class="fas fa-qrcode"></i>
+  </div>
+
+  <!-- Main App Container -->
+  <div id="app"></div>
+
+  <script>
+    // View Counter (Simple localStorage counter)
+    function updateViewCounter() {
+      let views = localStorage.getItem('pageViews') || 0;
+      views = parseInt(views) + 1;
+      localStorage.setItem('pageViews', views);
+      document.getElementById('viewCount').textContent = views + ' views';
+    }
+    
+    // QR Code Generator
+    function generateQR() {
+      const currentURL = window.location.href;
+      const qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(currentURL)}`;
+      
+      const qrWindow = window.open('', 'QR Code', 'width=400,height=450');
+      qrWindow.document.write(`
+        <html>
+          <head>
+            <title>QR Code - Raiden Nomaden</title>
+            <style>
+              body {
+                font-family: 'Poppins', sans-serif;
+                background: #0a0e27;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+              }
+              h2 { margin-bottom: 20px; }
+              img { border-radius: 15px; box-shadow: 0 10px 40px rgba(108, 99, 255, 0.5); }
+              p { margin-top: 20px; font-size: 12px; opacity: 0.7; }
+            </style>
+          </head>
+          <body>
+            <h2>📱 Scan QR Code</h2>
+            <img src="${qrURL}" alt="QR Code">
+            <p>Scan to visit this page</p>
+          </body>
+        </html>
+      `);
+    }
+    
+    // Initialize Linktree
+    Linktree.init({
+      img: "https://files.catbox.moe/qzcoyr.jpg",
+      nama: "Raiden Nomaden",
+      deskripsi: "Coding Very Good❤",
+      badge: "Developer & Gamer", // Profile Badge
+      medsos: [
+        {
+          "platform": "instagram",
+          "url": "Xi_Hidenk"
+        },
+        {
+          "platform": "discord",
+          "url": "RaidenNomadenn"
+        },
+        {
+          "platform": "whatsapp",
+          "url": "6285213859916"
+        },
+        {
+          "platform": "telegram",
+          "url": "RaidenNomaden"
+        },
+        {
+          "platform": "steam",
+          "url": "RaidenNomadennn"
+        },
+        {
+          "platform": "email",
+          "url": "yudhadobar2@gmail.com"
+        },
+        {
+          "platform": "youtube",
+          "url": "RaidenNomadens"
+        },
+        {
+          "platform": "github",
+          "url": "Xayn-NotDevs"
+        }
+      ],
+      links: [
+        {
+          "text": "Roblox Akoehh",
+          "url": "https://www.roblox.com/users/4091078601/profile"
+        },
+        {
+          "text": "Telegram Akoehh",
+          "url": "https://t.me/RaidenNomaden"
+        }
+      ],
+      footer: "Hellowww"
+    });
+    
+    // Render Profile Badge
+    setTimeout(() => {
+      const descElement = document.querySelector('.profile-description');
+      if (descElement) {
+        const badge = document.createElement('div');
+        badge.className = 'profile-badge';
+        badge.innerHTML = '<i class="fas fa-code"></i> Developer & Gamer';
+        descElement.after(badge);
+      }
+    }, 100);
+    
+    
+    const favoriteSingers = [
+      {
+        name: "Lana Del Rey",
+        image: "https://files.catbox.moe/0vnpne.jpg",
+        genre: "Alternative Pop"
+      },
+      {
+        name: "Billie Eilish",
+        image: "https://files.catbox.moe/8e8xtb.jpg",
+        genre: "Pop"
+      },
+      {
+        name: "Daniel Caesar",
+        image: "https://files.catbox.moe/zl3opx.jpg",
+        genre: "R&B / Soul"
+      },
+      {
+        name: "NIKI",
+        image: "https://files.catbox.moe/4kp155.jpg",
+        genre: "R&B / Pop"
+      }, 
+    
+      {
+        name: "Tenxi",
+        image: "URL_FOTO",
+         genre: "Pop"
+       }, 
+    ];
+    
+    // Render Favorite Singers Section
+    setTimeout(() => {
+      const appContainer = document.getElementById('app');
+      if (appContainer) {
+        const singersSection = document.createElement('div');
+        singersSection.className = 'favorite-artists';
+        singersSection.innerHTML = `
+          <h2 class="artists-title">🎵 Penyanyi Favorit</h2>
+          <div class="artists-grid">
+            ${favoriteSingers.map(singer => `
+              <div class="artist-card">
+                <img src="${singer.image}" alt="${singer.name}" class="artist-image" onerror="this.src='https://via.placeholder.com/100'">
+                <div class="artist-name">${singer.name}</div>
+                <div class="artist-genre">${singer.genre}</div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        appContainer.appendChild(singersSection);
+      }
+    }, 500);
+    
+    // Hide loading and update counter when page loads
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loading').classList.add('hidden');
+        updateViewCounter();
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
