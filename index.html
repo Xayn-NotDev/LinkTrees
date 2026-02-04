@@ -37,6 +37,10 @@
   <!-- External Styles -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hanzcode1/LinktreeBuilder@main/style.css">
   
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+  
   <style>
     /* Custom Enhancements */
     :root {
@@ -471,12 +475,122 @@
   <div id="app"></div>
 
   <script>
-    // View Counter (Simple localStorage counter)
+    
+    const _0x4f2a = ['QUl6YVN5RGtWT0RwMGhMcGFsMlpiV0FJVWhkNHhZMmZxbXR6QmNN','bGlua3RyZWUtcmFpZGVuLmZpcmViYXNlYXBwLmNvbQ==','aHR0cHM6Ly9saW5rdHJlZS1yYWlkZW4tZGVmYXVsdC1ydGRiLmFzaWEtc291dGhlYXN0MS5maXJlYmFzZWRhdGFiYXNlLmFwcA==','bGlua3RyZWUtcmFpZGVu','bGlua3RyZWUtcmFpZGVuLmZpcmViYXNlc3RvcmFnZS5hcHA=','Njk4OTc0MTkzNTg2','MTo2OTg5NzQxOTM1ODY6d2ViOmQzYjIzMGU5YjEwYTdhNDhjZTg2YWI='];
+    
+    function _0xd3c0de(str) {
+      try {
+        return atob(str);
+      } catch(e) {
+        return str;
+      }
+    }
+    
+    const firebaseConfig = {
+      apiKey: _0xd3c0de(_0x4f2a[0]),
+      authDomain: _0xd3c0de(_0x4f2a[1]),
+      databaseURL: _0xd3c0de(_0x4f2a[2]),
+      projectId: _0xd3c0de(_0x4f2a[3]),
+      storageBucket: _0xd3c0de(_0x4f2a[4]),
+      messagingSenderId: _0xd3c0de(_0x4f2a[5]),
+      appId: _0xd3c0de(_0x4f2a[6])
+    };
+    
+    // Initialize Firebase
+    let firebaseApp;
+    let database;
+    let viewCounterEnabled = false;
+    
+    try {
+      firebaseApp = firebase.initializeApp(firebaseConfig);
+      database = firebase.database();
+      viewCounterEnabled = true;
+    } catch (error) {
+      viewCounterEnabled = false;
+    }
+       
     function updateViewCounter() {
-      let views = localStorage.getItem('pageViews') || 0;
-      views = parseInt(views) + 1;
-      localStorage.setItem('pageViews', views);
-      document.getElementById('viewCount').textContent = views + ' views';
+      const viewCountElement = document.getElementById('viewCount');
+      
+      if (viewCounterEnabled && database) {
+        // Firebase Database Counter
+        const viewRef = database.ref('pageViews');
+        
+        // Get current count
+        viewRef.once('value').then((snapshot) => {
+          let currentViews = snapshot.val() || 0;
+          
+          // Check if user already visited
+          const hasVisited = sessionStorage.getItem('hasVisited');
+          
+          if (!hasVisited) {
+            // Increment view count
+            currentViews += 1;
+            viewRef.set(currentViews);
+            sessionStorage.setItem('hasVisited', 'true');
+          }
+          
+          // Display view count
+          if (viewCountElement) {
+            animateCounter(viewCountElement, currentViews);
+          }
+        }).catch((error) => {
+          fallbackViewCounter();
+        });
+        
+        // Real-time listener for live updates
+        viewRef.on('value', (snapshot) => {
+          const views = snapshot.val() || 0;
+          if (viewCountElement && !viewCountElement.dataset.animating) {
+            viewCountElement.textContent = formatNumber(views) + ' views';
+          }
+        });
+      } else {
+        // Fallback to localStorage
+        fallbackViewCounter();
+      }
+    }
+    
+    // Fallback localStorage counter
+    function fallbackViewCounter() {
+      try {
+        let views = localStorage.getItem('pageViews') || 0;
+        views = parseInt(views) + 1;
+        localStorage.setItem('pageViews', views);
+        
+        const viewCountElement = document.getElementById('viewCount');
+        if (viewCountElement) {
+          animateCounter(viewCountElement, views);
+        }
+      } catch (error) {
+        const viewCountElement = document.getElementById('viewCount');
+        if (viewCountElement) {
+          viewCountElement.textContent = '-- views';
+        }
+      }
+    }
+    
+    // Animate counter
+    function animateCounter(element, targetValue) {
+      element.dataset.animating = 'true';
+      let currentValue = 0;
+      const duration = 1500;
+      const increment = targetValue / (duration / 16);
+      
+      const timer = setInterval(() => {
+        currentValue += increment;
+        if (currentValue >= targetValue) {
+          currentValue = targetValue;
+          clearInterval(timer);
+          element.dataset.animating = 'false';
+        }
+        element.textContent = formatNumber(Math.floor(currentValue)) + ' views';
+      }, 16);
+    }
+    
+    // Format number with comma separator
+    function formatNumber(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
     
     // QR Code Generator
@@ -519,7 +633,7 @@
     Linktree.init({
       img: "https://files.catbox.moe/qzcoyr.jpg",
       nama: "Raiden Nomaden",
-      deskripsi: "Coding Very Good❤",
+      deskripsi: "Coding Very Good❤ Matane",
       badge: "Developer & Gamer", // Profile Badge
       medsos: [
         {
@@ -532,11 +646,11 @@
         },
         {
           "platform": "whatsapp",
-          "url": "6285213859916"
+          "url": "https//:6285213859916=hai%20"
         },
         {
           "platform": "telegram",
-          "url": "RaidenNomaden"
+          "url": "t.me/RaidenNomaden"
         },
         {
           "platform": "steam",
@@ -561,11 +675,15 @@
           "url": "https://www.roblox.com/users/4091078601/profile"
         },
         {
+          "text": "Saluran WhatsApp akoehh"
+          "url": "https://whatsapp.com/channel/0029Vb6wPKJISTkDBE1Eva3O"
+          }, 
+        {
           "text": "Telegram Akoehh",
           "url": "https://t.me/RaidenNomaden"
         }
       ],
-      footer: "Hellowww"
+      footer: "Hellowww, Beta Test btw"
     });
     
     // Render Profile Badge
@@ -601,12 +719,11 @@
         image: "https://files.catbox.moe/4kp155.jpg",
         genre: "R&B / Pop"
       }, 
-    
-      {
-        name: "Tenxi",
-        image: "URL_FOTO",
+       {
+         name: "Tenxi",
+         image: "URL_FOTO",
          genre: "Pop"
-       }, 
+      }, 
     ];
     
     // Render Favorite Singers Section
@@ -620,7 +737,11 @@
           <div class="artists-grid">
             ${favoriteSingers.map(singer => `
               <div class="artist-card">
-                <img src="${singer.image}" alt="${singer.name}" class="artist-image" onerror="this.src='https://via.placeholder.com/100'">
+                <img src="${singer.image}" 
+                     alt="${singer.name}" 
+                     class="artist-image" 
+                     loading="lazy"
+                     onerror="this.src='https://via.placeholder.com/100/6C63FF/FFFFFF?text=${encodeURIComponent(singer.name.substring(0, 2))}'">
                 <div class="artist-name">${singer.name}</div>
                 <div class="artist-genre">${singer.genre}</div>
               </div>
@@ -633,11 +754,23 @@
     
     // Hide loading and update counter when page loads
     window.addEventListener('load', () => {
+      // Update view counter immediately
+      updateViewCounter();
+      
+      // Hide loading overlay after short delay
       setTimeout(() => {
         document.getElementById('loading').classList.add('hidden');
-        updateViewCounter();
-      }, 1500);
+      }, 800);
     });
+    
+    // Fallback: Force hide loading after 2 seconds
+    setTimeout(() => {
+      const loadingElement = document.getElementById('loading');
+      if (loadingElement && !loadingElement.classList.contains('hidden')) {
+        loadingElement.classList.add('hidden');
+        updateViewCounter();
+      }
+    }, 2000);
   </script>
 </body>
 </html>
