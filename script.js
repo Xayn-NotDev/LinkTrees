@@ -289,12 +289,15 @@ function renderGoogleAdsense() {
         <div class="adsense-label">Sponsored Content</div>
         
         <!-- Google AdSense Auto Ads -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-             data-ad-slot="XXXXXXXXXX"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+       <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2667119806951170"
+     data-ad-slot="7961276998"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
         
         <!-- Ganti data-ad-client dan data-ad-slot dengan kode dari AdSense -->
       `;
