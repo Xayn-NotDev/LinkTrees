@@ -181,16 +181,16 @@ function generateQR() {
 const linktreeData = {
   img: "https://files.catbox.moe/qzcoyr.jpg",
   nama: "Raiden Nomaden",
-  deskripsi: "Coding Very Good❤ Matane",
+  deskripsi: "MBOETTT",
   medsos: [
     { platform: "instagram", url: "Xi_Hidenk" },
     { platform: "discord", url: "RaidenNomadenn" },
-    { platform: "whatsapp", url: "6285213859916" },
+    { platform: "whatsapp", url: "https://wa.me/6285213859916" },
     { platform: "telegram", url: "RaidenNomaden" },
     { platform: "steam", url: "RaidenNomadennn" },
     { platform: "email", url: "yudhadobar2@gmail.com" },
     { platform: "youtube", url: "RaidenNomadens" },
-    { platform: "github", url: "Xayn-NotDevs" }
+    { platform: "github", url: "github.com/Xayn-NotDevs" }
   ],
   links: [
     { text: "🎮 Roblox Akoehh", url: "https://www.roblox.com/users/4091078601/profile" },
@@ -222,8 +222,8 @@ const favoriteSingers = [
     genre: "R&B / Pop"
   },
   {
-    name: "Tenixi",
-    image: "https://cdn.pixabay.com/photo/2016/11/18/15/44/audience-1835431_640.jpg",
+    name: "Tenxi",
+    image: "https://www.deezer.com/us/artist/133850752",
     genre: "Pop"
   }
 ];
